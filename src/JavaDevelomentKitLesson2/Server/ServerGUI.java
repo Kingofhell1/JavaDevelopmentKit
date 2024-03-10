@@ -31,7 +31,7 @@ public class ServerGUI extends JFrame implements ServerView{
     }
 
     /**
-     * Метод getConnection возвращает экземпляр класса Server.
+     * Метод getConnection возвращает экземпляр класса ServerController.
      * @return экземпляр класса Server
      */
     public ServerController getConnection() {

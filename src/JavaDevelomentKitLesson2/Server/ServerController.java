@@ -18,10 +18,7 @@ public class ServerController {
         clientList = new ArrayList<>();
     }
 
-    /**
-     * Метод запуска Сервера. Если не работает, но поступила команда Старт, то сервер запускается.
-     * При поступлении повторной команды и работающем Сервере, выдается соответствующее сообщение.
-     */
+
     public void start(){
         if (work){
             showOnWindow("Сервер уже запущен.");
@@ -32,10 +29,7 @@ public class ServerController {
     }
 
 
-    /**
-     * Метод остановки Сервера. Если Сервер остановлен, но поступила команда Стоп, то выдается соответствующее сообщение.
-     * При работающем Сервере происходит его остановка.
-     */
+
     public void stop(){
         if (!work){
             showOnWindow("Сервер уже остановлен.");
@@ -61,11 +55,7 @@ public class ServerController {
         return true;
     }
 
-    /**
-     * Метод disconnectUser предназначен для отключения пользователя от беседы в чате.
-     * Пользователь удаляется из списка, и если он не на нулевой позиции, то он отключается от сервера,
-     * с выдачей соответствующего уведомления.
-     */
+
     public void disconnectUser(ClientController client){
         clientList.remove(client);
         if (client != null){
@@ -74,11 +64,7 @@ public class ServerController {
         }
     }
 
-    /**
-     * Метод sendMessage определяет порядок действий приложения при отправке сообщения пользователем.
-     * Если сервер работает, то сообщение выводится на экран, становится доступным для всех пользователей, а также
-     * записывается в историю сообщений.
-     */
+
     public void sendMessage(String text){
         if (!work){
             return;
@@ -106,18 +92,12 @@ public class ServerController {
         }
     }
 
-    /**
-     * Метод showOnWindow - запускает метод показа сообщения.
-     * @param text - текст сообщения.
-     */
+
     private void showOnWindow(String text){
         serverView.showMessage(text + "\n");
     }
 
-    /**
-     * Метод saveInHistory предназначен для вызова метода сохранения данных в файл.
-     * @param text текст сообщения.
-     */
+
     private void saveInHistory(String text){
         repository.saveMessage(text);
     }
